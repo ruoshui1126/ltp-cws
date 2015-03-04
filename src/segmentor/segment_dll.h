@@ -32,7 +32,7 @@
 SEGMENTOR_DLL_API void * segmentor_create_segmentor(const char * path,
                                                     const char * lexicon_file = NULL);
 
-SEGMENTOR_DLL_API void * segmentor_create_segmentor(const char * baseline_model_path,
+SEGMENTOR_DLL_API void * segmentor_create_customized_segmentor(const char * baseline_model_path,
                                                     const char * model_path,
                                                     const char * lexicon_path);
 /*
@@ -59,7 +59,7 @@ SEGMENTOR_DLL_API int segmentor_customized_segment(void * parser,
                                         const std::string & line,
                                         std::vector<std::string> & words);
 
-SEGMENTOR_DLL_API int segmentor_customized_segment(void * parser,
+SEGMENTOR_DLL_API int segmentor_customized_segment_online(void * parser,
                                         const char * model_path,
                                         const char * lexicon_path,
                                         const std::string & line,

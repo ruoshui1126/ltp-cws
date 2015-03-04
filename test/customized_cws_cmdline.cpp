@@ -25,9 +25,9 @@ int main(int argc, char * argv[]) {
 
   void * engine = 0;
   if (argc == 3) {
-    engine = segmentor_create_segmentor(argv[1], argv[2], NULL);
+    engine = segmentor_create_customized_segmentor(argv[1], argv[2], NULL);
   } else if (argc == 4) {
-    engine = segmentor_create_segmentor(argv[1], argv[2], argv[3]);
+    engine = segmentor_create_customized_segmentor(argv[1], argv[2], argv[3]);
   }
 
   if (!engine) {

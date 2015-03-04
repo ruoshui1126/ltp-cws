@@ -16,6 +16,7 @@
 #include <string>
 #include "time.hpp"
 #include "segment_dll.h"
+#include "SplitSentence.h"
 
 int main(int argc, char * argv[]) {
   if (argc < 2) {
@@ -33,6 +34,7 @@ int main(int argc, char * argv[]) {
   if (!engine) {
     return -1;
   }
+  std::vector<std::string> sents;
   std::vector<std::string> words;
   std::string sentence;
 
@@ -40,13 +42,19 @@ int main(int argc, char * argv[]) {
   double tm = ltp::utility::get_time();
 
   while (std::getline(std::cin, sentence, '\n')) {
-    words.clear();
+    sents.clear();
     if (sentence.size() == 0) { continue; }
-    int len = segmentor_segment(engine, sentence, words);
-    for (int i = 0; i < len; ++ i) {
-      std::cout << words[i];
-      if (i+1 == len) std::cout <<std::endl;
-      else std::cout<< "\t";
+
+    SplitSentence(sentence, sents);
+
+    for (int i = 0; i < sents.size(); ++i) {
+      words.clear();
+      int len = segmentor_segment(engine, sents[i], words);
+      for (int j = 0; j < len; ++ j) {
+        std::cout << words[j];
+        if (j+1 == len && i+1 == sents.size()) std::cout <<std::endl;
+        else std::cout<< "\t";
+      }
     }
   }
   tm = ltp::utility::get_time() - tm;

@@ -1,5 +1,6 @@
 include_directories (./
     ${SOURCE_DIR}/segmentor
+    ${SOURCE_DIR}/splitsnt
     ${SOURCE_DIR}/utils
     ${THIRDPARTY_DIR}/tinythreadpp)
 
@@ -8,7 +9,8 @@ link_directories ( ${LIBRARY_OUTPUT_PATH} )
 
 add_executable (cws_cmdline cws_cmdline.cpp)
 target_link_libraries (cws_cmdline segmentor_static_lib
-    boost_regex_static_lib)
+    boost_regex_static_lib
+    splitsnt_static_lib)
 
 add_executable (multi_cws_cmdline multi_cws_cmdline.cpp
     ${THIRDPARTY_DIR}/tinythreadpp/tinythread.cpp)

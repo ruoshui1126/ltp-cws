@@ -202,7 +202,7 @@ void * segmentor_create_segmentor(const char * path, const char * lexicon_file) 
   return reinterpret_cast<void *>(wrapper);
 }
 
-void * segmentor_create_segmentor(const char * baseline_model_path,
+void * segmentor_create_customized_segmentor(const char * baseline_model_path,
                                   const char * model_path,
                                   const char * lexicon_path) {
   SegmentorWrapper * wrapper = new SegmentorWrapper();
@@ -249,7 +249,7 @@ int segmentor_customized_segment(void * segmentor,
   SegmentorWrapper * wrapper = reinterpret_cast<SegmentorWrapper*>(segmentor);
   return wrapper->customized_segment(str, words);
 }
-int segmentor_customized_segment(void * parser,
+int segmentor_customized_segment_online(void * parser,
                       const char * model_path,
                       const char * lexicon_path,
                       const std::string & line,

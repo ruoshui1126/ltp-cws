@@ -97,10 +97,10 @@ int main(int argc, char ** argv) {
   int num_threads = -1;
 
   if (argc == 4) {
-    engine = segmentor_create_segmentor(argv[1], argv[2], NULL);
+    engine = segmentor_create_customized_segmentor(argv[1], argv[2], NULL);
     num_threads = atoi(argv[3]);
   } else if (argc == 5) {
-    engine = segmentor_create_segmentor(argv[1], argv[2], argv[3]);
+    engine = segmentor_create_customized_segmentor(argv[1], argv[2], argv[3]);
     num_threads = atoi(argv[4]);
   }
 
